@@ -29,7 +29,7 @@ class DG_Forrst extends WP_Widget {
 	}
 
 	/**
-	 * Fire up the widget
+	 * Construct a new instance of the widget
 	 */
 	public function __construct()
 	{
@@ -156,6 +156,9 @@ class DG_Forrst extends WP_Widget {
 		<?php
 	}
 
+	/**
+	 * Fetch the posts from Forrst or cache
+	 */
 	private function dg_get_posts($username, $postcount, $cachelength)
 	{
 		$forrst_api = 'http://forrst.com/api/v2/user/posts?username='.$username.'&limit='.$postcount;
@@ -200,6 +203,9 @@ class DG_Forrst extends WP_Widget {
 		return $html;
 	}
 
+	/**
+	 * Display a user friendly string for the post time
+	 */
 	private function dg_relative_time($time)
 	{
 		$parsed_date = strtotime($time);
